@@ -3,6 +3,14 @@ const getArrayFromChildren = Array.from(containerChildren);
 const submitButton = document.querySelector(".submitButton");
 const form = document.querySelector("form");
 const htmlBody = document.body;
+const clockDiv = document.querySelector(".clock");
+clockDiv.style.textTransform = "uppercase";
+
+setInterval(function () {
+  const date = new Date();
+  const currentTime = date.toLocaleTimeString("en-PK");
+  clockDiv.innerHTML = `${currentTime}`;
+}, 1000);
 
 getArrayFromChildren.forEach((div) => {
   div.addEventListener("click", (e) => {

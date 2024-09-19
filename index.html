@@ -64,6 +64,25 @@
         border: 1px solid lightgray;
         margin-top: 5%;
       }
+      .container3 {
+        width: 96%;
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        align-items: center;
+      }
+      .clock {
+        min-width: 300px;
+        min-height: 70px;
+        background-color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px darkgray;
+        border: none;
+      }
       @media screen and (max-width: 500px) {
         .container {
           flex-direction: column;
@@ -104,6 +123,9 @@
         />
         <button type="submit" class="submitButton">Calculate</button>
       </form>
+    </div>
+    <div class="container3">
+      <div class="clock"></div>
     </div>
   </body>
   <script src="projectScript.js"></script>
