@@ -72,7 +72,7 @@ const validateGuess = (guess) => {
     case guessValue > 100:
       displayMessage("Your guess value must be less than 100");
       break;
-    case numberOfGuesses >= 10:
+    case numberOfGuesses > 10:
       displayMessage("You are out of attempts!");
       endGame();
       break;
