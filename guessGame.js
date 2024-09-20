@@ -8,7 +8,7 @@
 // endGame --> this will end the game and disable the input
 
 // 1. Generate the random number
-const generatedRandomNumber = parseInt(Math.random() * 100 + 1);
+let generatedRandomNumber = parseInt(Math.random() * 100 + 1);
 
 // 2. Accessing multiple elements from HTML page and creating variables
 
@@ -30,6 +30,7 @@ const displayMessage = (message) => {
 
 const startGame = (button) => {
   button.remove();
+  generatedRandomNumber = parseInt(Math.random() * 100 + 1);
   previousGuesses = [];
   numberOfGuesses = 1;
   previousGuessesSpan.innerHTML = "";
@@ -98,7 +99,9 @@ const checkGuess = (guess) => {
       displayMessage("Your guess value is too high");
       break;
     default:
-      displayMessage("Wow, you won the game!");
+      displayMessage(
+        `Wow, you won the game!, the actual Number was ${generatedRandomNumber}`
+      );
       endGame();
       break;
   }
