@@ -74,6 +74,8 @@ const validateGuess = (guess) => {
     case numberOfGuesses >= 10:
       switch (true) {
         case guessValue != generatedRandomNumber:
+          previousGuesses.push(guess);
+          previousGuessesSpan.innerHTML = `${previousGuesses}`;
           let remainingGuessesEnd = 10 - numberOfGuesses;
           remainingGuessesSpan.innerHTML = `${remainingGuessesEnd}`;
           displayMessage(
