@@ -18,7 +18,7 @@ const previousGuessesSpan = document.querySelector(".prevGuess");
 const remainingGuessesSpan = document.querySelector(".remainGuess");
 const guessInformationDiv = document.querySelector(".guessInformationDiv");
 let previousGuesses = [];
-let numberOfGuesses = 10;
+let numberOfGuesses = 1;
 
 // 1. Display Message --> displays message to the User
 const displayMessage = (message) => {
