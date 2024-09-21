@@ -51,6 +51,7 @@ const endGame = () => {
   startGameButton.style.border = "none";
   startGameButton.style.borderRadius = "5px";
   startGameButton.style.fontSize = "17px";
+  startGameButton.style.cursor = "pointer";
   guessInformationDiv.appendChild(startGameButton);
   startGameButton.addEventListener("click", function () {
     startGame(startGameButton);
