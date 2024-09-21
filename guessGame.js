@@ -9,7 +9,7 @@
 
 // 1. Generate the random number
 let generatedRandomNumber = parseInt(Math.random() * 100 + 1);
-
+console.log(`Random Number is: ${generatedRandomNumber}`);
 // 2. Accessing multiple elements from HTML page and creating variables
 
 const userInput = document.querySelector(".guessInput");
@@ -19,7 +19,7 @@ const previousGuessesSpan = document.querySelector(".prevGuess");
 const remainingGuessesSpan = document.querySelector(".remainGuess");
 const guessInformationDiv = document.querySelector(".guessInformationDiv");
 let previousGuesses = [];
-let numberOfGuesses = 1;
+let numberOfGuesses = 10;
 
 // 1. Display Message --> displays message to the User
 const displayMessage = (message) => {
@@ -72,11 +72,21 @@ const validateGuess = (guess) => {
     case guessValue > 100:
       displayMessage("Your guess value must be less than 100");
       break;
-    case numberOfGuesses > 10:
-      displayMessage(
-        `You are out of attempts!, the actual Number was ${generatedRandomNumber}`
-      );
-      endGame();
+    case numberOfGuesses >= 10:
+      switch (true) {
+        case guessValue != generatedRandomNumber:
+          let remainingGuessesEnd = 10 - numberOfGuesses;
+          remainingGuessesSpan.innerHTML = `${remainingGuessesEnd}`;
+          displayMessage(
+            `You are out of attempts!, the actual Number was ${generatedRandomNumber}`
+          );
+          endGame();
+          break;
+        default:
+          p.innerHTML = "";
+          checkGuess(guessValue);
+          break;
+      }
       break;
     default:
       p.innerHTML = "";
