@@ -17,6 +17,7 @@ const p = document.querySelector(".p");
 const previousGuessesSpan = document.querySelector(".prevGuess");
 const remainingGuessesSpan = document.querySelector(".remainGuess");
 const guessInformationDiv = document.querySelector(".guessInformationDiv");
+const submitButton = document.querySelector(".submitButton");
 let previousGuesses = [];
 let numberOfGuesses = 1;
 
@@ -36,12 +37,14 @@ const startGame = (button) => {
   remainingGuessesSpan.innerHTML = "";
   p.innerHTML = "";
   userInput.removeAttribute("disabled");
+  submitButton.removeAttribute("disabled");
 };
 
 // 3. End Game --> This will end the game and Input field is no longer addable for the User
 
 const endGame = () => {
   userInput.setAttribute("disabled", "true");
+  submitButton.setAttribute("disabled", "true");
   let startGameButton = document.createElement("button");
   startGameButton.innerHTML = "Start Game";
   startGameButton.style.backgroundColor = "#fff";
