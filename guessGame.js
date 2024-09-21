@@ -73,7 +73,9 @@ const validateGuess = (guess) => {
       displayMessage("Your guess value must be less than 100");
       break;
     case numberOfGuesses > 10:
-      displayMessage("You are out of attempts!");
+      displayMessage(
+        `You are out of attempts!, the actual Number was ${generatedRandomNumber}`
+      );
       endGame();
       break;
     default:
