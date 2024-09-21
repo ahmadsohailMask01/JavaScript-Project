@@ -9,7 +9,6 @@
 
 // 1. Generate the random number
 let generatedRandomNumber = parseInt(Math.random() * 100 + 1);
-console.log(`Random Number is: ${generatedRandomNumber}`);
 // 2. Accessing multiple elements from HTML page and creating variables
 
 const userInput = document.querySelector(".guessInput");
