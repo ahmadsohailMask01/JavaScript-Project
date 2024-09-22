@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style></style>
+  </head>
+  <body style="background-color: #414141">
+    <ul style="color: white" class="ul">
+      <li class="li1"><span class="element1">Element 1</span></li>
+      <li class="li2"><span class="element2">Element 2</span></li>
+      <li class="li3"><span class="element3">Element 3</span></li>
+      <li class="li4"><span class="element4">Element 4</span></li>
+      <li class="li5"><span class="element5">Element 5</span></li>
+      <li class="li6"><span class="element6">Element 6</span></li>
+      <li class="li7"><span class="element7">Element 7</span></li>
+      <li class="li8"><span class="element8">Element 8</span></li>
+      <li class="li9"><span class="element9">Element 9</span></li>
+      <li class="li10"><span class="element10">Element 10</span></li>
+    </ul>
+  </body>
+  <script>
+    //Method 1
+    const ul = document.querySelector(".ul");
+    ul.addEventListener(
+      "click",
+      function (e) {
+        console.log(e.clientX);
+        if (e.target.tagName === "SPAN") {
+          const removeElement = e.target.parentNode;
+          removeElement.remove();
+        } else if (e.target.tagName === "LI") {
+          const elementToRemove = e.target;
+          elementToRemove.remove();
+        }
+      },
+      false
+    );
+
+    //Method 2
+    // const getAllListOfElements = document.querySelector(".ul").children;
+    // const convertedArrayList = Array.from(getAllListOfElements);
+
+    // convertedArrayList.forEach((element) => {
+    //   element.addEventListener(
+    //     "click",
+    //     function (e) {
+    //       if (e.target.tagName === "SPAN") {
+    //         const elementToRemove = e.target.parentNode;
+    //         elementToRemove.remove();
+    //       }
+    //     },
+    //     false
+    //   );
+    // });
+    //false is set for event bubbling and true is for event capturing
+  </script>
+</html>
