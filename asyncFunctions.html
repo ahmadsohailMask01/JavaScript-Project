@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Async Functions (Built-in)</title>
+  </head>
+  <body>
+    <h1>Chai Aur Code (Learning)</h1>
+    <button class="startButton">Start</button>
+    <button class="stopButton">Stop</button>
+  </body>
+  <script>
+    const stopButton = document.querySelector(".stopButton");
+    const startButton = document.querySelector(".startButton");
+
+    startButton.addEventListener("click", function () {
+      const dateInterval = setInterval(
+        (param) => {
+          const newTime = new Date();
+          const currentTime = newTime.toLocaleTimeString("en-PK");
+          document.querySelector("h1").innerText = `${param}${currentTime}`;
+        },
+        1000,
+        "Today Time: "
+      );
+      stopButton.addEventListener("click", function () {
+        clearInterval(dateInterval);
+        document.querySelector("h1").innerText = "Chai Aur Code (Learning)";
+      });
+    });
+
+    const changeTitle = setTimeout(function () {
+      document.querySelector("h1").innerHTML = "I am learning JavaScript";
+    }, 2000);
+    stopButton.addEventListener("click", function () {
+      clearTimeout(changeTitle);
+      console.log("Stopped!!");
+    });
+  </script>
+</html>
