@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analog Clock</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #313131;
+      }
+
+      .clock {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        background-color: #414141;
+        height: 300px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 60px #616161;
+        border: 1px solid #111111;
+      }
+      .clock span {
+        display: inline-block;
+        position: absolute;
+        transform: rotate(calc(30deg * var(--i)));
+        inset: 12px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .clock span i {
+        display: inline-block;
+        transform: rotate(calc(-30deg * var(--i)));
+      }
+      .clock::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        z-index: 2;
+      }
+      .tick {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .tick i {
+        position: absolute;
+        width: var(--w);
+        border: 20px;
+        height: var(--h);
+        background-color: var(--clr);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock">
+        <div class="tick" id="hour">
+          <i style="--h: 50px; --w: 3px; --clr: #d4ab4e"></i>
+        </div>
+        <div class="tick" id="minute">
+          <i style="--h: 70px; --w: 3px; --clr: #913d49"></i>
+        </div>
+        <div class="tick" id="second">
+          <i style="--h: 80px; --w: 1px; --clr: #6598a9"></i>
+        </div>
+        <span style="--i: 1"><i>1</i></span>
+        <span style="--i: 2"><i>2</i></span>
+        <span style="--i: 3"><i>3</i></span>
+        <span style="--i: 4"><i>4</i></span>
+        <span style="--i: 5"><i>5</i></span>
+        <span style="--i: 6"><i>6</i></span>
+        <span style="--i: 7"><i>7</i></span>
+        <span style="--i: 8"><i>8</i></span>
+        <span style="--i: 9"><i>9</i></span>
+        <span style="--i: 10"><i>10</i></span>
+        <span style="--i: 11"><i>11</i></span>
+        <span style="--i: 12"><i>12</i></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    const hr = document.getElementById("hour");
+    const min = document.getElementById("minute");
+    const sec = document.getElementById("second");
+
+    const currentTime = () => {
+      const date = new Date();
+
+      let hh = date.getHours();
+      if (hh > 12) {
+        hh = hh - 12;
+      }
+      const mm = date.getMinutes();
+      const ss = date.getSeconds();
+
+      const hourRotate = 30 * hh + mm / 2;
+      const minuteRotate = 6 * mm;
+      const secondRotate = 6 * ss;
+
+      hr.style.transform = `rotate(${hourRotate}deg)`;
+      min.style.transform = `rotate(${minuteRotate}deg)`;
+      sec.style.transform = `rotate(${secondRotate}deg)`;
+    };
+    setInterval(currentTime, 1000);
+  </script>
+</html>
