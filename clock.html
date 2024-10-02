@@ -103,7 +103,7 @@
       const ss = date.getSeconds();
 
       const hourRotate = 30 * hh + mm / 2;
-      const minuteRotate = 6 * mm;
+      const minuteRotate = 6 * mm + (ss * 1) / 10;
       const secondRotate = 6 * ss;
 
       hr.style.transform = `rotate(${hourRotate}deg)`;
